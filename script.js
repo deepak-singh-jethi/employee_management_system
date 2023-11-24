@@ -5,6 +5,8 @@ const form = document.getElementById("form");
 const recordsConatiner = document.getElementById("recordsContainer");
 const createButton = document.querySelector("#form button");
 
+const searchInput = document.getElementById("search");
+
 const onSubmitForm = (event) => {
   event.preventDefault();
 
@@ -147,3 +149,34 @@ function fillFormWithData(employee) {
 }
 
 form.addEventListener("submit", onSubmitForm);
+
+searchInput.addEventListener("input", () => {
+  let query = searchInput.value;
+  filterResult(query);
+});
+
+function filterResult(query) {
+  const filteredRes = employeeList.filter((emp) => {
+    /*  name: form.name.value,
+      salary: form.salary.value,
+      role: form.role.value,
+      team: form.team.value,
+      CompanyName: form.CompanyName.value, 
+      
+      ||
+      emp.role.toLowerCase().includes(query.toLowerCase()) ||
+      emp.team.toLowerCase().includes(query.toLowerCase()) ||
+      emp.name.toLowerCase().includes(query.toLowerCase())
+      
+      */
+
+    return (
+      emp.name.toLowerCase().includes(query.toLowerCase()) ||
+      emp.role.toLowerCase().includes(query.toLowerCase()) ||
+      emp.team.toLowerCase().includes(query.toLowerCase()) ||
+      emp.name.toLowerCase().includes(query.toLowerCase())
+    );
+  });
+
+  printRecord(filteredRes);
+}

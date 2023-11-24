@@ -53,6 +53,30 @@
 /* right */
 .right{
     padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.search_box{
+    padding: 20px;
+    margin-inline: auto;
+    width: 50%;
+    height: 100px;
+}
+
+.search_box input{
+    background-color: #CCDEF9;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+}
+
+.search_box input:focus{
+    outline: none;
 }
 .right table{
     width: 100%;
